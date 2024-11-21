@@ -39,6 +39,12 @@
             border-radius: 10px;
             font-weight: bold;
         }
+        #image {
+            display: none;
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -46,18 +52,21 @@
         <div id="progress-bar">0%</div>
     </div>
     <div id="message">Data copied successfully</div>
+    <img id="image" src="your-image-url.jpg" alt="Dynamic Image">
 
     <script>
         function updateProgressBar() {
             const progressBar = document.getElementById('progress-bar');
             const progressContainer = document.getElementById('progress-container');
             const message = document.getElementById('message');
+            const image = document.getElementById('image');
             let width = 0;
             const interval = setInterval(() => {
                 if (width >= 100) {
                     clearInterval(interval);
                     progressContainer.style.display = 'none';
                     message.style.display = 'block';
+                    image.style.display = 'block';
                 } else {
                     width++;
                     progressBar.style.width = width + '%';
@@ -70,3 +79,4 @@
     </script>
 </body>
 </html>
+
